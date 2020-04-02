@@ -1,0 +1,8 @@
+# Run manually to reformat a file:
+# clang-format -i --style=file <file>
+Language:        Cpp
+BasedOnStyle:  Microsoft
+---
+Language:        CSharp
+UseTab:          Never
+TabWidth:        4
