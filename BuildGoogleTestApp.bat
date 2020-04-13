@@ -41,18 +41,21 @@ reg Query "HKLM\Hardware\Description\System\CentralProcessor\0" | find /i "x86" 
 
 rem ## Run build
 echo  %ESC%[32mLaunch command %UEDir%\Engine\Build\BatchFiles\Build.bat GoogleTestApp Win%OS% Development "%ProjDirectory%\GoogleTestApp.uproject" -waitmutex%ESC%[0m
-%UEDir%\Engine\Build\BatchFiles\Build.bat GoogleTestApp Win%OS% Development "%ProjDirectory%\GoogleTestApp.uproject" -waitmutex
+call %UEDir%\Engine\Build\BatchFiles\Build.bat GoogleTestApp Win%OS% Development "%ProjDirectory%\GoogleTestApp.uproject" -waitmutex
 echo error level output: %ERRORLEVEL%
 if not %ERRORLEVEL% == 0 goto Exit_Failure
+rem ## Run tests
+.\Binaries\Win%OS%\GoogleTestApp.exe
 
 rem ## Success!
 goto Final
 
 :Exit_Failure
+echo %ESC%[91mfailed%ESC%[0m 
 exit /B %ERRORLEVEL%
 
 :Final
 rem ## Restore original CWD in case we change it
 popd
+echo %ESC%[32mTests build and Run sucessfully%ESC%[0m
 exit /B 0
-
