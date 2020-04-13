@@ -66,6 +66,16 @@ namespace UnrealBuildTool.Rules
             PublicDefinitions.Add("GTEST_FOR_GOOGLE_=0");
             PublicDefinitions.Add("GTEST_GCC_VER_=0");
 
+            
+            PublicDefinitions.Add("GTEST_INTERNAL_HAS_STRING_VIEW=0");
+            PublicDefinitions.Add("GTEST_OS_DRAGONFLY=0");
+            PublicDefinitions.Add("GTEST_OS_GNU_KFREEBSD=0");
+            PublicDefinitions.Add("GTEST_OS_OPENBSD=0");
+            PublicDefinitions.Add("GTEST_OS_HAIKU=0");
+            PublicDefinitions.Add("GTEST_OS_ESP8266=0");
+            PublicDefinitions.Add("GTEST_OS_ESP32=0");
+
+
             PublicDefinitions.Add("WIN32_LEAN_AND_MEAN=1");
         }
     }
